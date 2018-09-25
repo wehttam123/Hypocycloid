@@ -1,24 +1,5 @@
-﻿  Program.cpp
-f:\documents\github\hypocycloid\boilerplate\boilerplate\program.cpp(82): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-f:\documents\github\hypocycloid\boilerplate\boilerplate\program.cpp(83): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-f:\documents\github\hypocycloid\boilerplate\boilerplate\program.cpp(92): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-f:\documents\github\hypocycloid\boilerplate\boilerplate\program.cpp(93): warning C4305: 'argument': truncation from 'double' to 'float'
-f:\documents\github\hypocycloid\boilerplate\boilerplate\program.cpp(94): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-f:\documents\github\hypocycloid\boilerplate\boilerplate\program.cpp(94): warning C4305: 'argument': truncation from 'double' to 'float'
-f:\documents\github\hypocycloid\boilerplate\boilerplate\program.cpp(95): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Geometry.cpp
-f:\documents\github\hypocycloid\boilerplate\boilerplate\geometry.cpp(22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-f:\documents\github\hypocycloid\boilerplate\boilerplate\geometry.cpp(23): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-f:\documents\github\hypocycloid\boilerplate\boilerplate\geometry.cpp(49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-f:\documents\github\hypocycloid\boilerplate\boilerplate\geometry.cpp(50): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
-  Compiling...
-  main.cpp
-  RenderEngine.cpp
-f:\documents\github\hypocycloid\boilerplate\boilerplate\renderengine.cpp(30): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-  InputHandler.cpp
-f:\documents\github\hypocycloid\boilerplate\boilerplate\inputhandler.cpp(27): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-f:\documents\github\hypocycloid\boilerplate\boilerplate\inputhandler.cpp(28): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  Generating Code...
+﻿  InputHandler.cpp
+f:\documents\github\hypocycloid\boilerplate\boilerplate\inputhandler.cpp(43): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+f:\documents\github\hypocycloid\boilerplate\boilerplate\inputhandler.cpp(44): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   boilerplate.vcxproj -> F:\Documents\GitHub\hypocycloid\boilerplate\x64\Debug\boilerplate.exe
   boilerplate.vcxproj -> F:\Documents\GitHub\hypocycloid\boilerplate\x64\Debug\boilerplate.pdb (Partial PDB)

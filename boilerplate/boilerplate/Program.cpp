@@ -1,6 +1,8 @@
-#define _USE_MATH_DEFINES
+﻿#define _USE_MATH_DEFINES
 #include "Program.h"
 #include <cmath>
+
+bool Program::hide;
 
 Program::Program() {
 	window = nullptr;
@@ -47,11 +49,11 @@ void Program::setupWindow() {
 // Main loop
 void Program::mainLoop() {
 
-	float r = 11.0;      // Radius of small circle
-	float R = 2.5;		// Radius of larger circle
-	float n = 100.0;		// Number of cycles
+	float r = 4.0;     // Radius of small circle
+	float R = 6.0;		// Radius of larger circle
+	float n = 2.0;	// Number of cycles
 
-	float angle = 0.0;	// Rotation Angle******
+	//float angle = 1.0;	// Rotation Angle
 	float scale = 1.0;	// Scale of Hypocycloid
 	double i = 0.0;		// Position along cycle
 	double u = 0.0;		// Position along Hypocycloid
@@ -59,7 +61,9 @@ void Program::mainLoop() {
 	float x;			// X position
 	float y;			// Y position
 
-						// Adjust scale
+	Program::hide = false;
+
+	// Adjust scale
 	r = r * scale;
 	R = R * scale;
 
@@ -68,9 +72,12 @@ void Program::mainLoop() {
 
 		glLineWidth(3);
 
+		// Hide
+		HideCircle = Geometry::makeCircle(100.0, 0.0, 0.0, 1.0, 1.0, 1.0, Program::hide);
+
 		// Animation Position
 		if (i < n) {
-			i += 0.1; // Animation speed
+			i += 0.01; // Animation speed
 		}
 		else {
 			i = 0.0;
@@ -81,6 +88,10 @@ void Program::mainLoop() {
 		// Parametric Equations
 		x = ((R - r) * cos(u)) + (r * cos(((R - r) / r) * u));
 		y = ((R - r) * sin(u)) - (r * sin(((R - r) / r) * u));
+
+		// Adjust rotation
+		//x = (x * cos(angle)) - (y * sin(angle));
+		//y = (y * cos(angle)) + (x * sin(angle));
 
 		// Build Hypocycloid
 		Hypocycloid = Geometry::makeHypocycloid(r, R, i);
@@ -95,6 +106,9 @@ void Program::mainLoop() {
 		Radius = Geometry::makeLine(x, y, (R - r)*cos(u), (R - r)*sin(u));
 
 		// Render Objects
+		renderEngine->assignBuffers(HideCircle);
+		renderEngine->updateBuffers(HideCircle);
+		objects.push_back(&HideCircle);
 		renderEngine->assignBuffers(OuterCircle);
 		renderEngine->updateBuffers(OuterCircle);
 		objects.push_back(&OuterCircle);

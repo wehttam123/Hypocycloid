@@ -1,4 +1,5 @@
 #include "InputHandler.h"
+#include "Program.h"
 
 RenderEngine* InputHandler::renderEngine;
 int InputHandler::mouseOldX;
@@ -15,6 +16,21 @@ void InputHandler::key(GLFWwindow* window, int key, int scancode, int action, in
 		glfwDestroyWindow(window);
 		glfwTerminate();
 		exit(0);
+	}
+	if (key == GLFW_KEY_D && action == GLFW_PRESS) {
+		if (Program::hide) {
+			Program::hide = false;
+		} else {
+			Program::hide = true;
+		}
+	}
+	if (key == GLFW_KEY_H && action == GLFW_PRESS) {
+		if (Program::hide) {
+			Program::hide = false;
+		}
+		else {
+			Program::hide = true;
+		}
 	}
 }
 

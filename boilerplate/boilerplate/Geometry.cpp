@@ -41,6 +41,8 @@ Geometry Geometry::makeHypocycloid(float r, float R, double n) {
 	float x = 0.0;
 	float y = 0.0;
 
+	//float angle = 0.0;
+
 	Geometry Hypcycloid;
 
 	for (double u = 0.0; u <= 2.0 * M_PI * n; u += 0.01) {
@@ -48,6 +50,10 @@ Geometry Geometry::makeHypocycloid(float r, float R, double n) {
 		// Parametric Equations
 		x = ((R - r) * cos(u)) + (r * cos(((R - r) / r) * u));
 		y = ((R - r) * sin(u)) - (r * sin(((R - r) / r) * u));
+
+		// Adjust rotation
+		//x = (x * cos(angle)) - (y * sin(angle));
+		//y = (y * cos(angle)) + (x * sin(angle));
 
 		Hypcycloid.verts.push_back(glm::vec3(x, y, 0));
 		Hypcycloid.colours.push_back(glm::vec3(1.f, 0.f, 0.f));

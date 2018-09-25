@@ -10,11 +10,14 @@
 #include "InputHandler.h"
 #include "RenderEngine.h"
 
+
 class Program {
 
 public:
 	Program();
 	void start();
+
+	static bool hide;
 
 private:
 	GLFWwindow* window;
@@ -28,6 +31,7 @@ private:
 	Geometry MiddleDot;
 	Geometry EdgeDot;
 	Geometry Radius;
+	Geometry HideCircle;
 
 	static void error(int error, const char* description);
 	void setupWindow();
