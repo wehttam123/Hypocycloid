@@ -1,0 +1,3 @@
+﻿  ShaderTools.cpp
+c:\documents\cpsc589ta\boilerplate\boilerplate\shadertools.cpp(159): warning C4244: 'initializing': conversion from 'std::streamoff' to 'unsigned long', possible loss of data
+  boilerplate.vcxproj -> C:\Documents\CPSC589TA\boilerplate\x64\Debug\boilerplate.exe
