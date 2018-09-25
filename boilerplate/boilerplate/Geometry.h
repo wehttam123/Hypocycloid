@@ -19,6 +19,7 @@ public:
 	std::vector<glm::vec3> colours;
 	glm::mat4 modelMatrix;
 
-	static Geometry makeCircle(float radius, float uInc);
+	static Geometry makeCircle(float radius, float x, float y, float r, float g, float b, bool fill);
+	static Geometry makeHypocycloid(float r, float R, double n);
+	static Geometry makeLine(float x, float y, float x1, float y1);
 };
-

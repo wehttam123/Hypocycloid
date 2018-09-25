@@ -1,4 +1,6 @@
+#define _USE_MATH_DEFINES
 #include "Program.h"
+#include <cmath>
 
 Program::Program() {
 	window = nullptr;
@@ -31,7 +33,7 @@ void Program::setupWindow() {
 	}
 
 	glfwWindowHint(GLFW_SAMPLES, 16);
-	window = glfwCreateWindow(512, 512, "589 Boilerplate", NULL, NULL);
+	window = glfwCreateWindow(1280, 720, "CPSC 589 Assignment 1 Hypocycloid", NULL, NULL);
 	glfwMakeContextCurrent(window);
 	glfwSwapInterval(1); // V-sync on
 
@@ -45,14 +47,72 @@ void Program::setupWindow() {
 // Main loop
 void Program::mainLoop() {
 
-	testObject = Geometry::makeCircle(2.0, 0.01);
+	float r = 11.0;      // Radius of small circle
+	float R = 2.5;		// Radius of larger circle
+	float n = 100.0;		// Number of cycles
 
-	renderEngine->assignBuffers(testObject);
-	renderEngine->updateBuffers(testObject);
-	objects.push_back(&testObject);
+	float angle = 0.0;	// Rotation Angle******
+	float scale = 1.0;	// Scale of Hypocycloid
+	double i = 0.0;		// Position along cycle
+	double u = 0.0;		// Position along Hypocycloid
 
-	while(!glfwWindowShouldClose(window)) {
+	float x;			// X position
+	float y;			// Y position
+
+						// Adjust scale
+	r = r * scale;
+	R = R * scale;
+
+	while (!glfwWindowShouldClose(window)) {
 		glfwPollEvents();
+
+		glLineWidth(3);
+
+		// Animation Position
+		if (i < n) {
+			i += 0.1; // Animation speed
+		}
+		else {
+			i = 0.0;
+		}
+
+		// Calculate Position
+		u = 2.0 * M_PI * i;
+		// Parametric Equations
+		x = ((R - r) * cos(u)) + (r * cos(((R - r) / r) * u));
+		y = ((R - r) * sin(u)) - (r * sin(((R - r) / r) * u));
+
+		// Build Hypocycloid
+		Hypocycloid = Geometry::makeHypocycloid(r, R, i);
+
+		// Outer Circle
+		OuterCircle = Geometry::makeCircle(R, 0.0, 0.0, 1.0, 0.5, 0.0, false);
+
+		// Inner Circle
+		InnerCircle = Geometry::makeCircle(r, (R - r)*cos(u), (R - r)*sin(u), 0.0, 0.0, 0.0, false);
+		EdgeDot = Geometry::makeCircle(0.2, x, y, 1.0, 0.0, 0.0, true);
+		MiddleDot = Geometry::makeCircle(0.2, (R - r)*cos(u), (R - r)*sin(u), 0.0, 0.0, 0.0, true);
+		Radius = Geometry::makeLine(x, y, (R - r)*cos(u), (R - r)*sin(u));
+
+		// Render Objects
+		renderEngine->assignBuffers(OuterCircle);
+		renderEngine->updateBuffers(OuterCircle);
+		objects.push_back(&OuterCircle);
+		renderEngine->assignBuffers(InnerCircle);
+		renderEngine->updateBuffers(InnerCircle);
+		objects.push_back(&InnerCircle);
+		renderEngine->assignBuffers(Hypocycloid);
+		renderEngine->updateBuffers(Hypocycloid);
+		objects.push_back(&Hypocycloid);
+		renderEngine->assignBuffers(EdgeDot);
+		renderEngine->updateBuffers(EdgeDot);
+		objects.push_back(&EdgeDot);
+		renderEngine->assignBuffers(MiddleDot);
+		renderEngine->updateBuffers(MiddleDot);
+		objects.push_back(&MiddleDot);
+		renderEngine->assignBuffers(Radius);
+		renderEngine->updateBuffers(Radius);
+		objects.push_back(&Radius);
 
 		renderEngine->render(objects, glm::mat4(1.f));
 		glfwSwapBuffers(window);

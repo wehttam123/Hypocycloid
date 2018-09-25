@@ -22,7 +22,12 @@ private:
 
 	std::vector<Geometry*> objects;
 
-	Geometry testObject;
+	Geometry Hypocycloid;
+	Geometry OuterCircle;
+	Geometry InnerCircle;
+	Geometry MiddleDot;
+	Geometry EdgeDot;
+	Geometry Radius;
 
 	static void error(int error, const char* description);
 	void setupWindow();
