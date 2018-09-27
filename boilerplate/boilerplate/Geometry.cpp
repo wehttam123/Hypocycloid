@@ -36,26 +36,26 @@ Geometry Geometry::makeCircle(float radius, float x1, float y1, float r, float g
 	return circle;
 }
 
-Geometry Geometry::makeHypocycloid(float r, float R, double n) {
+Geometry Geometry::makeHypocycloid(float r, float R, double n, float angle) {
 
-	float x = 0.0;
-	float y = 0.0;
-
-	//float angle = 0.0;
+	float x;
+	float y;
+	float xr;
+	float yr;
 
 	Geometry Hypcycloid;
 
-	for (double u = 0.0; u <= 2.0 * M_PI * n; u += 0.01) {
+	for (double u = 0.0; u <= 2.0 * M_PI * n; u += 0.05) {
 
 		// Parametric Equations
 		x = ((R - r) * cos(u)) + (r * cos(((R - r) / r) * u));
 		y = ((R - r) * sin(u)) - (r * sin(((R - r) / r) * u));
 
 		// Adjust rotation
-		//x = (x * cos(angle)) - (y * sin(angle));
-		//y = (y * cos(angle)) + (x * sin(angle));
+		xr = (x * cos(angle)) - (y * sin(angle));
+		yr = (y * cos(angle)) + (x * sin(angle));
 
-		Hypcycloid.verts.push_back(glm::vec3(x, y, 0));
+		Hypcycloid.verts.push_back(glm::vec3(xr, yr, 0));
 		Hypcycloid.colours.push_back(glm::vec3(1.f, 0.f, 0.f));
 	}
 

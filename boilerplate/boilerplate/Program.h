@@ -10,14 +10,24 @@
 #include "InputHandler.h"
 #include "RenderEngine.h"
 
-
 class Program {
 
 public:
 	Program();
 	void start();
 
+	static int width;
+	static int height;
+
 	static bool hide;
+	static double speed;
+	static float r;
+	static float R;
+	static float n;
+	static float angle;
+	static float scale;
+	static bool rPressed;
+	static bool nPressed;
 
 private:
 	GLFWwindow* window;

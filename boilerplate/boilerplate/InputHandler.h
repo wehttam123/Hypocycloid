@@ -23,4 +23,5 @@ private:
 
 	static int mouseOldX;
 	static int mouseOldY;
+	static bool mousePressed;
 };

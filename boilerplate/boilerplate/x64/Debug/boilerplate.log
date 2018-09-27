@@ -1,5 +1,9 @@
-﻿  InputHandler.cpp
-f:\documents\github\hypocycloid\boilerplate\boilerplate\inputhandler.cpp(43): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-f:\documents\github\hypocycloid\boilerplate\boilerplate\inputhandler.cpp(44): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+﻿  Program.cpp
+f:\documents\github\hypocycloid\boilerplate\boilerplate\program.cpp(139): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+f:\documents\github\hypocycloid\boilerplate\boilerplate\program.cpp(140): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+f:\documents\github\hypocycloid\boilerplate\boilerplate\program.cpp(144): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+f:\documents\github\hypocycloid\boilerplate\boilerplate\program.cpp(145): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+f:\documents\github\hypocycloid\boilerplate\boilerplate\program.cpp(150): warning C4305: 'argument': truncation from 'double' to 'float'
+f:\documents\github\hypocycloid\boilerplate\boilerplate\program.cpp(152): warning C4305: 'argument': truncation from 'double' to 'float'
   boilerplate.vcxproj -> F:\Documents\GitHub\hypocycloid\boilerplate\x64\Debug\boilerplate.exe
   boilerplate.vcxproj -> F:\Documents\GitHub\hypocycloid\boilerplate\x64\Debug\boilerplate.pdb (Partial PDB)
